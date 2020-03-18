@@ -40,7 +40,7 @@ function Search() {
     //query Google Books API with GAPI util
     GAPI.searchBooks(formObject.search)
       .then(res => {
-        // console.log(res.data.items);
+        console.log(res.data.items);
         //set Books state to API results
         setBooks(res.data.items);
       }
@@ -53,13 +53,13 @@ function Search() {
     // console.log(books[bookID]);
     //build newBook object
     const newBook = {
-      title: books[bookID].volumeInfo.title,
-      authors: books[bookID].volumeInfo.authors.join(", "),
-      description: books[bookID].volumeInfo.description,
-      image: books[bookID].volumeInfo.imageLinks.thumbnail,
-      link: books[bookID].volumeInfo.infoLink
+      title: books[bookID].volumeInfo.title ? books[bookID].volumeInfo.title : "",
+      authors: books[bookID].volumeInfo.authors ? books[bookID].volumeInfo.authors.join(", ") : "",
+      description: books[bookID].volumeInfo.description ? books[bookID].volumeInfo.description : "",
+      image: books[bookID].volumeInfo.imageLinks ? books[bookID].volumeInfo.imageLinks.thumbnail : "",
+      link: books[bookID].volumeInfo.infoLink ? books[bookID].volumeInfo.infoLink : ""
     }
-    // console.log(newBook);
+    console.log(newBook);
     //post newBook to API
     API.saveBook(newBook)
     .then(alert("Book Saved!"));
@@ -89,7 +89,7 @@ function Search() {
                 {books.map((book, index) => (
                   <ListItem key={index}>
                       <strong>
-                        {book.volumeInfo.title} by {book.volumeInfo.authors.join(", ")}
+                        {book.volumeInfo.title && book.volumeInfo.title} by {book.volumeInfo.authors && book.volumeInfo.authors.join(", ")}
                       </strong>
                       <FormBtn onClick={() => handleBookSave(index)}>Save Book</FormBtn>
                   </ListItem>

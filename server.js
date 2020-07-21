@@ -1,5 +1,10 @@
+// environment vars
+require('dotenv').config()
+
+// server
 const express = require("express");
 
+// database
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();

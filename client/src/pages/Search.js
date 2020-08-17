@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import GAPI from "../utils/GAPI";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 
 function Search() {
   // Setting our component's initial state
@@ -48,9 +45,6 @@ function Search() {
   };
 
   function handleBookSave(bookID){
-    // event.preventDefault();
-    // console.log(bookID);
-    // console.log(books[bookID]);
     //build newBook object
     const newBook = {
       title: books[bookID].volumeInfo.title ? books[bookID].volumeInfo.title : "",
@@ -75,10 +69,7 @@ function Search() {
                 name="search"
                 placeholder="Search Book (required)"
               />
-              <FormBtn
-                // disabled={!(formObject.author && formObject.title)}
-                onClick={handleFormSubmit}
-              >
+              <FormBtn onClick={handleFormSubmit} >
                 Submit Book
               </FormBtn>
             </form>

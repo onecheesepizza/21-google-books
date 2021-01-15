@@ -4,7 +4,7 @@
 A MERN stack application that saves results from the Google Books API to a NoSQL database. Powered by React, Node.js, Express, MongoDB, Mongoose, Bootstrap, and Axios
 
 ## Live Application
-Deployed at: [https://ocp-google-books.herokuapp.com/](https://ocp-google-books.herokuapp.com/)
+Deployed at: [https://znode-google-books.herokuapp.com/](https://znode-google-books.herokuapp.com/)
 
 ## Run Locally  
 clone the repo, cd to directory.
